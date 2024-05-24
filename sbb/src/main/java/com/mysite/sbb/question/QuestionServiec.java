@@ -19,11 +19,17 @@ public class QuestionServiec {
 	
 	private final QuestionRepository questionRepository;
 	
+	/**
+	 * 질문 목록 전체 데이터 반환
+	 * */
 	public List<Question> getList(){
 		// 앞에 컨트롤러에서 리포지터리 바로 접근하던 부분을 Service단에서 접근하여 데이터 처리
 		return this.questionRepository.findAll();
 	}
 	
+	/**
+	 * 질문목록 id값으로 상세 목록 반환
+	 * */
 	public Question getQuestion(Integer id) {
 			Optional<Question> question = this.questionRepository.findById(id);
 			if(question.isPresent()) {
